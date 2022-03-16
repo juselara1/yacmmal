@@ -6,4 +6,4 @@ class Config(BaseModel):
     hyperparameters: Optional[BaseModel]
     experiment: Optional[BaseModel]
     training: Optional[BaseModel]
-    metrics: Optional[BaseModel]
+    compile: Optional[BaseModel]

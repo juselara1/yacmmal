@@ -1,0 +1,6 @@
+learning_rate: 0.001
+loss: "categorical_crossentropy"
+optimizer: "adam"
+metrics:
+  - "accuracy"
+  - "AUC"
