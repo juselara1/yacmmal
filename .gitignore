@@ -1,0 +1,13 @@
+*.env
+*.venv
+*.ipynb
+*.csv
+*.xlsx
+*.parquet
+*.egg*
+*.lock
+**/*__pycache__/*
+**/*.ipynb_checkpoints/*
+build/
+results/
+dist/
