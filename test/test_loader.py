@@ -1,7 +1,6 @@
 from yacmmal.load.yaml import YAMLLoader
 from yacmmal import BaseModel
 from typing import List
-import pytest
 
 class HyperParams(BaseModel):
     activation: str
