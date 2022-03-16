@@ -27,7 +27,7 @@ class TrainParams(BaseModel):
     epochs: int
     batch_size: int
 
-class TestYAMLLoader:
+class TestYAMLBuilder:
     yaml_loader = YAMLLoader(base_path="test/config/")
     config = (
             yaml_loader
