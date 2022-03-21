@@ -1,14 +1,34 @@
 from pydantic import BaseModel
 from yacmmal.load.yaml import YAMLLoader
 from yacmmal.load.json import JSONLoader
-from typing import Sequence, Tuple, Callable, Type
+from yacmmal.types.formats import ConfigFormat
+from typing import Sequence, Tuple, Callable, Type, Union
 
-loaders = {"yaml": YAMLLoader, "json": JSONLoader}
-
+loaders = {
+        ConfigFormat.YAML: YAMLLoader,
+        ConfigFormat.JSON: JSONLoader
+        }
 
 def autoconfig(
-    base_path: str, config: Sequence[Tuple[str, str, Type[BaseModel]]], format: str
-) -> Callable:
+    base_path: str,
+    config: Sequence[Tuple[str, str, Type[BaseModel]]],
+    format: Union[str, ConfigFormat],
+    ) -> Callable:
+    """
+    Decorator to automatically load a config file.
+
+    Parameters
+    ----------
+    base_path : str
+        The base path to the config file.
+    config : Sequence[Tuple[str, str, Type[BaseModel]]]
+        A list of tuples containing the name of the config file, the path to the config file, and the dataclass.
+    format : str
+        The format of the config file.
+    """
+    if isinstance(format, str):
+        format = ConfigFormat[format.upper()]
+
     def wrapper(func: Callable) -> Callable:
         def func_with_conf(*args, **kwargs):
             loader = loaders[format](base_path)
