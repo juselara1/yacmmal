@@ -4,10 +4,12 @@ from yacmmal.types.config import Config
 from pydantic import BaseModel
 from typing import Dict, Type
 
-class AbstactLoader(ABC):
 
+class AbstractLoader(ABC):
     @abstractmethod
-    def add_path(self, path: str, name: str, dclass: Type[BaseModel]) -> "AbstactLoader":
+    def add_path(
+        self, path: str, name: str, dclass: Type[BaseModel]
+    ) -> "AbstractLoader":
         ...
 
     @abstractmethod
@@ -18,7 +20,8 @@ class AbstactLoader(ABC):
     def extract(self) -> Config:
         ...
 
-class Loader(AbstactLoader):
+
+class Loader(AbstractLoader):
     def __init__(self, base_path: str):
         self.data: Dict[str, BaseModel] = {}
         self.format: str = ""
