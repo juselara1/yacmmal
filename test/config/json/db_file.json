@@ -1,0 +1,6 @@
+{
+    "host": "localhost",
+    "port": 4343,
+    "db": "MyDB",
+    "user": "MySchema"
+}
