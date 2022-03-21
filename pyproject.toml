@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "yacmmal"
-version = "0.1.0"
+version = "0.1.1"
 description = "Yet Another Config Manager for MAchine Learning (yacmmal) is a package to automatically load config files for machine learning projects."
 authors = ["Juan Lara <julara@unal.edu.co>"]
 license = "MIT"
@@ -9,11 +9,14 @@ license = "MIT"
 python = "^3.9"
 pydantic = "^1.9.0"
 PyYAML = "^6.0"
+recommonmark = "^0.7.1"
+renku-sphinx-theme = "^0.2.2"
 
 [tool.poetry.dev-dependencies]
 neovim = "^0.3.1"
 pytest = "^7.1.0"
 ipython = "^8.1.1"
+Sphinx = "^4.4.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

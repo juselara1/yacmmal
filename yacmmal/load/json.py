@@ -17,7 +17,7 @@ class JSONLoader(Loader):
         super(JSONLoader, self).__init__(base_path=base_path)
         self.format = "json"
 
-    def load(self, path, dclass: Type[BaseModel]) -> BaseModel:
+    def load(self, path: str, dclass: Type[BaseModel]) -> BaseModel:
         """
         Loads a JSON file as a dataclass.
 

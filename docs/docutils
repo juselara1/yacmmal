@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Removes previous build files
+clean_docs() {
+    for file in docs/source/*.rst; do
+        [[ "$file" != */index.rst ]] && rm "$file"
+    done
+    [[ -d docs/build/ ]] && rm -rf docs/build
+}
+
+# Generates the documentation
+build_docs() {
+    sphinx-apidoc -o docs/source/ "${1}/" &&\
+        pushd docs &&\
+        make clean html &&\
+        popd
+}
+
+# Shows the documentation in the default browser
+local_docs() {
+	python -mwebbrowser docs/build/html/index.html
+}
+
+$*
+exit 0
