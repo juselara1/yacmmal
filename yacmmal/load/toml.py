@@ -1,11 +1,11 @@
-import json
+import toml
 from typing import Type
 from yacmmal.load.base import Loader
 from pydantic import BaseModel
 
-class JSONLoader(Loader):
+class TOMLLoader(Loader):
     """
-    Loader for JSON files.
+    Loader for TOML files.
 
     Attributes
     ----------
@@ -14,19 +14,19 @@ class JSONLoader(Loader):
     """
 
     def __init__(self, base_path: str):
-        super(JSONLoader, self).__init__(base_path=base_path)
-        self.format = "json"
+        super(TOMLLoader, self).__init__(base_path=base_path)
+        self.format = "toml"
 
     def load(self, path: str, dclass: Type[BaseModel]) -> BaseModel:
         """
-        Loads a JSON file as a dataclass.
+        Loads a TOML file as a dataclass.
 
         Parameters
         ----------
         path : str
-            The path to the JSON file.
+            The path to the TOML file.
         dclass : Type[BaseModel]
-            The dataclass to load the JSON file as.
+            The dataclass to load the TOML file as.
 
         Returns
         -------
@@ -34,5 +34,5 @@ class JSONLoader(Loader):
             The loaded dataclass.
         """
         with open(path, "r") as json_file:
-            data = json.load(json_file)
+            data = toml.load(json_file)
         return dclass.parse_obj(data)

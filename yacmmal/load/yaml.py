@@ -17,7 +17,7 @@ class YAMLLoader(Loader):
         super(YAMLLoader, self).__init__(base_path=base_path)
         self.format = "yaml"
 
-    def load(self, path, dclass: Type[BaseModel]) -> BaseModel:
+    def load(self, path: str, dclass: Type[BaseModel]) -> BaseModel:
         """
         Loads a YAML file.
 
@@ -35,4 +35,4 @@ class YAMLLoader(Loader):
         """
         with open(path, "r") as f:
             data = yaml.load(f, Loader=yaml.Loader)
-        return dclass(**data)
+        return dclass.parse_obj(data)

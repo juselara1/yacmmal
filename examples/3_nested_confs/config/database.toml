@@ -1,0 +1,11 @@
+[mysql]
+host = "localhost"
+port = 3306
+user = "root"
+database = "test"
+
+[postgresql]
+host = "localhost2"
+port = 5432
+user = "postgres"
+database = "test"

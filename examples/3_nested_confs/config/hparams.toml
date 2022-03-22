@@ -1,0 +1,9 @@
+[neural_network]
+activation = "relu"
+hidden_units = [64, 32]
+dropout = 0.5
+
+[svm]
+kernel = "rbf"
+gamma = 0.1
+C = 1.0
