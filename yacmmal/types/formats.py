@@ -7,3 +7,4 @@ class ConfigFormat(Enum):
     JSON = auto()
     YAML = auto()
     TOML = auto()
+    CONF = auto()

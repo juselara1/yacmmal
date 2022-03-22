@@ -12,6 +12,14 @@ yacmmal.load.base module
    :undoc-members:
    :show-inheritance:
 
+yacmmal.load.conf module
+------------------------
+
+.. automodule:: yacmmal.load.conf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yacmmal.load.json module
 ------------------------
 

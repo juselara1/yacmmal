@@ -5,9 +5,10 @@ test: test-builder test-decorator
 
 doc: clean-doc build-doc
 
-publish: publish-pypi
+publish: publish-pypi publish-doc
 
 publish-doc: doc
+	@echo "Publishing documentation..."
 	firebase deploy
 
 publish-pypi:
