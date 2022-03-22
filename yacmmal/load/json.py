@@ -35,4 +35,4 @@ class JSONLoader(Loader):
         """
         with open(path, "r") as json_file:
             data = json.load(json_file)
-        return dclass(**data)
+        return dclass.parse_obj(data)

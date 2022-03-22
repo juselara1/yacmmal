@@ -1,8 +1,8 @@
 import os
 from abc import ABC, abstractmethod
-from yacmmal.types.config import Config
+from yacmmal.types.config import Config, ConfigAttrs
 from pydantic import BaseModel
-from typing import Dict, Type
+from typing import Dict, Type, Union
 
 class AbstractLoader(ABC):
     """
@@ -31,7 +31,7 @@ class Loader(AbstractLoader):
         self.format: str = ""
         self.base_path: str = base_path
 
-    def add_path(self, path: str, name: str, dclass: Type[BaseModel]) -> "Loader":
+    def add_path(self, path: str, name: Union[str, ConfigAttrs], dclass: Type[BaseModel]) -> "Loader":
         """
         Adds a path to the loader.
 
@@ -39,7 +39,7 @@ class Loader(AbstractLoader):
         ----------
         path : str
             Path to the config file.
-        name : str
+        name : Union[str, ConfigAttrs]
             Name of the config file.
         dclass : Type[BaseModel]
             The dataclass to use.
@@ -49,9 +49,11 @@ class Loader(AbstractLoader):
         Loader
             The current loader.
         """
+        if isinstance(name, str):
+            name = ConfigAttrs[name]
         file_name = ".".join([path, self.format])
         file_path = os.path.join(self.base_path, file_name)
-        self.data[name] = self.load(file_path, dclass)
+        self.data[name.name] = self.load(file_path, dclass)
         return self
 
     def extract(self) -> Config:
