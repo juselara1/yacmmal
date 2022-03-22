@@ -6,7 +6,7 @@
 Welcome to yacmmal's documentation!
 ===================================
 
-Yet Another Config Manager for MAchine Learning (yacmmal) is a package to automatically load config files for machine learning projects. :mod:`yacmmal` is built on top of :mod:`pydantic` and allows type checking, and automatic creation of dataclasses from different file formats like YAML, JSON, CSV, among others.
+Yet Another Config Manager for MAchine Learning (yacmmal) is a package to automatically load config files for machine learning projects. :mod:`yacmmal` is built on top of :mod:`pydantic` and allows type checking, and automatic creation of dataclasses from different file formats like YAML, JSON, TOML, among others.
 
 .. toctree::
    :maxdepth: 3

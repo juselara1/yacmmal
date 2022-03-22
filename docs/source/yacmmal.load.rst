@@ -20,6 +20,14 @@ yacmmal.load.json module
    :undoc-members:
    :show-inheritance:
 
+yacmmal.load.toml module
+------------------------
+
+.. automodule:: yacmmal.load.toml
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yacmmal.load.yaml module
 ------------------------
 

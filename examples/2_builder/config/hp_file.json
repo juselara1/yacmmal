@@ -1,8 +1,5 @@
 {
-    "activation": "relu",
-    "hidden_units": [
-        32,
-        64
-    ],
-    "dropout": 0.2
+    "kernel": "rbf",
+    "gamma": 0.1,
+    "C": 1.0
 }
