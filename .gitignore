@@ -6,6 +6,9 @@
 *.parquet
 *.egg*
 *.lock
+*.log
+.firebase/*
+.firebaserc
 **/*__pycache__/*
 **/*.ipynb_checkpoints/*
 build/
