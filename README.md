@@ -20,4 +20,4 @@ poetry add yacmmal
 
 ## Usage
 
-You can check `yacmmal` [documentation](https://yacmmal.readthedocs.io/en/latest/)
+You can check the project's [documentation](https://yacmmal-docs.web.app/).

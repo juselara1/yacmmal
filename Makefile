@@ -5,7 +5,12 @@ test: test-builder test-decorator
 
 doc: clean-doc build-doc
 
-publish:
+publish: publish-pypi
+
+publish-doc: doc
+	firebase deploy
+
+publish-pypi:
 	@echo "Building and publishing to Pypi..."
 	poetry version `git describe --tags --abbrev=0`
 	poetry build -f sdist && poetry publish
