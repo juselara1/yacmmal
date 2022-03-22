@@ -39,3 +39,16 @@ class CONFLoader(Loader):
         data = {section: dict(config[section]) for section in config.sections()}
         print(data)
         return dclass.parse_obj(data)
+
+class INILoader(CONFLoader):
+    """
+    Loader for INI files.
+
+    Attributes
+    ----------
+    base_path : str
+        The base path of the config files.
+    """
+    def __init__(self, base_path: str):
+        super(INILoader, self).__init__(base_path=base_path)
+        self.format = "ini"

@@ -4,14 +4,14 @@
 
 `yacmmal` uses a `Config` dataclass to load different types of machine learning configurations, this object is created as a composition of the following dataclasses:
 
-* `paths`: it's intended to store different paths that are used in the project, e.g., source data paths, experiments folders, directories to save the models.
-* `database`: you can place here databases' related configurations like host name, port, table names.
-* `hyperparameters`: this attribute groups the hyperparameters that are typically used in the models, for instance activation functions, number of units per layer, regularization constant, kernel functions, among others.
-* `experiment`: this stores experiment-related configurations, like train-test proportions, number of folds for k-fold cross-validation, number of trials, class weights, among others.
-* `training`: the training configuration determines the parameter's estimation process, this includes number of epochs, batch size, verbosity, among others.
-* `evaluation`: this can contain testing configurations such as thresholds, evaluation metrics, significance levels, among others.
-* `optimization`: in some cases (like `tensorflow` or `pytorch`), the model's optimization can be configured, this attribute can be used to store parameters like the optimizer kind, learning rate, burndown rate, among others.
-* `deploy`: it's related to the deployment used in the ML application, e.g., routes and ports in an API, computational resources (maximum RAM and jobs), among others.
+- `paths`: it's intended to store different paths that are used in the project, e.g., source data paths, experiments folders, directories to save the models.
+- `database`: you can place here databases' related configurations like host name, port, table names.
+- `hyperparameters`: this attribute groups the hyperparameters that are typically used in the models, for instance activation functions, number of units per layer, regularization constant, kernel functions, among others.
+- `experiment`: this stores experiment-related configurations, like train-test proportions, number of folds for k-fold cross-validation, number of trials, class weights, among others.
+- `training`: the training configuration determines the parameter's estimation process, this includes number of epochs, batch size, verbosity, among others.
+- `evaluation`: this can contain testing configurations such as thresholds, evaluation metrics, significance levels, among others.
+- `optimization`: in some cases (like `tensorflow` or `pytorch`), the model's optimization can be configured, this attribute can be used to store parameters like the optimizer kind, learning rate, burndown rate, among others.
+- `deploy`: it's related to the deployment used in the ML application, e.g., routes and ports in an API, computational resources (maximum RAM and jobs), among others.
 
 ## The Autoconfig Decorator
 
@@ -25,7 +25,7 @@ The decorator mode allows to extract configurations in a single function. For in
 └── main.py
 ```
 
-* `hp_file.yaml` contains the hyperparameters for your model:
+- `hp_file.yaml` contains the hyperparameters for your model:
 
 ```yaml
 activation: "relu"
@@ -35,7 +35,7 @@ hidden_units:
 dropout: 0.2
 ```
 
-* `ep_file.yaml` contains the experiment parameters:
+- `ep_file.yaml` contains the experiment parameters:
 
 ```yaml
 test_size: 0.3
@@ -71,9 +71,9 @@ def load_cfg(cfg):
 
 The `autoconfig` decorator defines:
 
-* `base_path`: for the root path of the config files.
-* `config`: a sequence of tuples, such that each tuple contains three elements `(file_name, config_type, dataclass)`. The `config_type` must be one of the `yacmmal.types.config.ConfigAttrs`
-* `format`: the file format of the config files, must be one of the `yacmmal.types.formats.ConfigFormat`.
+- `base_path`: for the root path of the config files.
+- `config`: a sequence of tuples, such that each tuple contains three elements `(file_name, config_type, dataclass)`. The `config_type` must be one of the `yacmmal.types.config.ConfigAttrs`
+- `format`: the file format of the config files, must be one of the `yacmmal.types.formats.ConfigFormat`.
 
 > You can find this example [here](https://github.com/juselara1/yacmmal/tree/main/examples/1_decorator).
 
@@ -88,7 +88,7 @@ The builder API allows to dynamically build a `Config` object, using the `yacmma
     └── hp_file.json
 ```
 
-* The `db.json` file contains the configurations for the database:
+- The `db.json` file contains the configurations for the database:
 
     ```javascript
     {
@@ -100,7 +100,7 @@ The builder API allows to dynamically build a `Config` object, using the `yacmma
     }
     ```
 
-* The `hp_file.json` contains the model's hyperparameters:
+- The `hp_file.json` contains the model's hyperparameters:
 
     ```javascript
     {
@@ -141,12 +141,12 @@ print(f"Config: {cfg}")
 
 ```
 
-* The `yacmmal.load.base.Loader` is initialized with the `base_path` of the configuration files.
-* The `add_path` method receives:
-    * `path`: file name for the configuration.
-    * `name`: a configuration attribute defined at `yacmmal.types.config.ConfigAttrs`
-    * `dclass`: dataclass used to extract the configurations.
-* The `extract` method generates a `Config` object with the consolidated configurations.
+- The `yacmmal.load.base.Loader` is initialized with the `base_path` of the configuration files.
+- The `add_path` method receives:
+    - `path`: file name for the configuration.
+    - `name`: a configuration attribute defined at `yacmmal.types.config.ConfigAttrs`
+    - `dclass`: dataclass used to extract the configurations.
+- The `extract` method generates a `Config` object with the consolidated configurations.
 
 > You can find this example [here](https://github.com/juselara1/yacmmal/tree/main/examples/2_builder).
 
@@ -161,7 +161,7 @@ There are some cases in which you are working in a complex application that cont
     └── hparams.toml
 ```
 
-* `database.toml` contains the configurations for two databases:
+- `database.toml` contains the configurations for two databases:
 
     ```toml
     [mysql]
@@ -177,7 +177,7 @@ There are some cases in which you are working in a complex application that cont
     database = "test"
     ```
 
-* `hparams.toml` contains the configurations for two models:
+- `hparams.toml` contains the configurations for two models:
 
     ```toml
     [neural_network]
