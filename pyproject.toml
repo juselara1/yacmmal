@@ -11,6 +11,7 @@ pydantic = "^1.9.0"
 PyYAML = "^6.0"
 recommonmark = "^0.7.1"
 renku-sphinx-theme = "^0.2.2"
+toml = "^0.10.2"
 
 [tool.poetry.dev-dependencies]
 neovim = "^0.3.1"
