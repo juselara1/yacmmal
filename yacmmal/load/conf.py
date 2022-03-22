@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 class CONFLoader(Loader):
     """
-    Loader for TOML files.
+    Loader for CONF files.
 
     Attributes
     ----------
@@ -24,9 +24,9 @@ class CONFLoader(Loader):
         Parameters
         ----------
         path : str
-            The path to the TOML file.
+            The path to the CONF file.
         dclass : Type[BaseModel]
-            The dataclass to load the TOML file as.
+            The dataclass to load the CONF file as.
 
         Returns
         -------
@@ -37,7 +37,6 @@ class CONFLoader(Loader):
         config.read(path)
 
         data = {section: dict(config[section]) for section in config.sections()}
-        print(data)
         return dclass.parse_obj(data)
 
 class INILoader(CONFLoader):
@@ -52,3 +51,16 @@ class INILoader(CONFLoader):
     def __init__(self, base_path: str):
         super(INILoader, self).__init__(base_path=base_path)
         self.format = "ini"
+
+    def load(self, path: str, dclass: Type[BaseModel]) -> BaseModel:
+        """
+        Loads a INI file as a dataclass.
+
+        Parameters
+        ----------
+        path : str
+            The path to the INI file.
+        dclass : Type[BaseModel]
+            The dataclass to load the INI file as.
+        """
+        return super(INILoader, self).load(path=path, dclass=dclass)
