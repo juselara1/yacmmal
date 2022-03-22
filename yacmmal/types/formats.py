@@ -8,3 +8,4 @@ class ConfigFormat(Enum):
     YAML = auto()
     TOML = auto()
     CONF = auto()
+    INI = auto()
