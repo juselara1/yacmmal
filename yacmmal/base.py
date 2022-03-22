@@ -1,13 +1,15 @@
 from pydantic import BaseModel
 from yacmmal.load.yaml import YAMLLoader
 from yacmmal.load.json import JSONLoader
+from yacmmal.load.yaml import YAMLLoader
 from yacmmal.types.formats import ConfigFormat
 from yacmmal.types.config import ConfigAttrs
 from typing import Sequence, Tuple, Callable, Type, Union
 
 loaders = {
         ConfigFormat.YAML: YAMLLoader,
-        ConfigFormat.JSON: JSONLoader
+        ConfigFormat.JSON: JSONLoader,
+        ConfigFormat.TOML: YAMLLoader
         }
 
 def autoconfig(
