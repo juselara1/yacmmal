@@ -1,6 +1,8 @@
 SHELL=/bin/bash
 PACKAGE_NAME="yacmmal"
 
+all: test publish
+
 test: test-builder test-decorator
 
 doc: clean-doc build-doc
